@@ -16,7 +16,7 @@ public class Animal {
     }
 
     public void eat() {
-        System.out.println(this + " eats " + getFood());
+        System.out.println("Favorite animal food is " + getFood());
     }
 
     public void sleep(boolean isSleepWell) {

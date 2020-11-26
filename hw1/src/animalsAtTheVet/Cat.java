@@ -3,7 +3,7 @@ package animalsAtTheVet;
 import lombok.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor // don't include super
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

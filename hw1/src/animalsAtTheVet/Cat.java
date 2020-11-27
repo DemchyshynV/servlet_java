@@ -2,7 +2,6 @@ package animalsAtTheVet;
 
 import lombok.*;
 
-@NoArgsConstructor
 @AllArgsConstructor // don't include super
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -11,14 +10,21 @@ import lombok.*;
 public class Cat extends Animal {
 
     private final String description = "The cat is a domestic species of small carnivorous mammal.";
+    private final String owner;
     private String color;
 
-    public Cat(String food, String location) {
-        super(food, location);
+    public Cat(String owner) {
+        this.owner = owner;
     }
 
-    public Cat(String food, String location, String color) {
+    public Cat(String food, String location, String owner) {
         super(food, location);
+        this.owner = owner;
+    }
+
+    public Cat(String food, String location, String color, String owner) {
+        super(food, location);
+        this.owner = owner;
         this.color = color;
     }
 

@@ -25,7 +25,6 @@ public class Animal {
             return;
         }
 
-
         System.out.println(this + " sleeps bad.");
     }
 }

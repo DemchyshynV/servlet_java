@@ -5,7 +5,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor // don't include super
 @Data
-@EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 
 public class Dog extends Animal {

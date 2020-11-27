@@ -20,7 +20,11 @@ public class Animal {
     }
 
     public void sleep(boolean isSleepWell) {
-        if (isSleepWell) System.out.println(this + " sleeps well.");
+        if (isSleepWell) {
+            System.out.println(this + " sleeps well.");
+            return;
+        }
+
 
         System.out.println(this + " sleeps bad.");
     }

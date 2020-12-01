@@ -1,7 +1,6 @@
 package booksMagazines;
 
 import lombok.*;
-
 import java.util.List;
 
 @NoArgsConstructor
@@ -9,16 +8,16 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 
-public class Magazine extends BookMagazineTemplate implements Printable {
+public class Book extends BookMagazineTemplate implements Printable {
 
-    public Magazine(String name, int year) {
+    public Book(String name, int year) {
         super(name, year);
     }
 
-    public static void printMagazines(List<Printable> printable){
+    public static void printBooks(List<Printable> printable) {
         for (Printable printBookMagazine : printable) {
-            if (printBookMagazine instanceof Magazine) {
-                System.out.println(((Magazine) printBookMagazine).getName());
+            if (printBookMagazine instanceof Book) {
+                System.out.println(((Book) printBookMagazine).getName());
             }
         }
     }

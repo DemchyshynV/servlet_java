@@ -15,6 +15,5 @@ public class Main {
         for (Animal animal : animals) {
             Vet.treatAnimal(animal);
         }
-
     }
 }

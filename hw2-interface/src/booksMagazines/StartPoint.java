@@ -18,6 +18,5 @@ public class StartPoint {
 
         Magazine.printMagazines(booksAndMagazines);
         Book.printBooks(booksAndMagazines);
-
     }
 }

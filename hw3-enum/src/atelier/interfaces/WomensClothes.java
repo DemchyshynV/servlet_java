@@ -1,4 +1,4 @@
-package atelier;
+package atelier.interfaces;
 
 public interface WomensClothes {
 

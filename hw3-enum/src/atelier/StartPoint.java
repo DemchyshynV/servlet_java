@@ -1,5 +1,8 @@
 package atelier;
 
+import atelier.interfaces.MensClothes;
+import atelier.interfaces.WomensClothes;
+
 public class StartPoint {
 
     public static void main(String[] args) {

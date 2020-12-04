@@ -1,5 +1,6 @@
 package atelier;
 
+import atelier.enums.SizeOfClothing;
 import lombok.*;
 
 @NoArgsConstructor

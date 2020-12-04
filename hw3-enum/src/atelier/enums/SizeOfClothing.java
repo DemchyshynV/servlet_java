@@ -1,4 +1,4 @@
-package atelier;
+package atelier.enums;
 
 public enum SizeOfClothing {
 

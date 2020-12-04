@@ -14,7 +14,9 @@ public class StartPoint {
             booksAndMagazines.add(new Magazine("magazineName" + (i + 1), 2010 + i));
         }
 
-        for (Printable bookAndMagazine : booksAndMagazines) bookAndMagazine.print();
+        for (Printable bookAndMagazine : booksAndMagazines) {
+            bookAndMagazine.print();
+        }
 
         Magazine.printMagazines(booksAndMagazines);
         Book.printBooks(booksAndMagazines);

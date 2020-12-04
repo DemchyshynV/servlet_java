@@ -6,7 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 
-public abstract class BookMagazineTemplate {
+public class BookMagazineTemplate {
 
     private String name;
     private int year;

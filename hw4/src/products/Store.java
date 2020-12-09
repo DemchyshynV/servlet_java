@@ -5,6 +5,8 @@ import products.enums.ProductType;
 import products.helper.Helper;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -63,15 +65,25 @@ public class Store {
 //        System.out.println("the product has been removed.");
 
         // or
-        for (Product product : products) {
+//        for (Product product : products) {
+//            if (product.getName().equals(name)) {
+//                this.products.remove(product);
+//                System.out.println("the product has been removed.");
+//                return;
+//            }
+//        }
+//
+//        System.out.println("the product hasn't been removed, there is no product with this name in the store.");
+
+        // or
+        Iterator<Product> productIterator = this.products.iterator();
+
+        while (productIterator.hasNext()) {
+            Product product = productIterator.next();
             if (product.getName().equals(name)) {
-                this.products.remove(product);
-                System.out.println("the product has been removed.");
-                return;
+                productIterator.remove();
             }
         }
-
-        System.out.println("the product hasn't been removed, there is no product with this name in the store.");
     }
 
 

@@ -18,23 +18,14 @@ public class ZooClub {
     public static void addPerson() {
         Person person = (Person) Helper.creatureCreator(CreatureTypes.PERSON);
 
-//        int clubParticipants = zooClub.size();
-//        zooClub.putIfAbsent(person, new ArrayList<>());
-//
-//        if (clubParticipants == zooClub.size()) {
-//            System.out.println("the same person already exists");
-//            return;
-//        }
-
-
-        // or
-        if (club.containsKey(person)) {
-            System.out.println("the same person already exists.");
-            return;
+        for (Person participant : club.keySet()) {
+            if (participant.getName().equals(person.getName())) {
+                System.out.println("the person with the same name already exists, name must be unique");
+                return;
+            }
         }
 
         club.put(person, new ArrayList<>());
-
         System.out.println("person has been added");
     }
 

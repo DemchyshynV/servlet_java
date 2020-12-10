@@ -24,16 +24,16 @@ public class Helper {
     public static Creature creatureCreator(CreatureTypes creature) {
         if (creature.equals(CreatureTypes.PERSON)) {
             return new Person(
-                    (String) Helper.fieldCreator(CreatureTypes.PERSON, FieldTypes.NAME),
-                    (int) Helper.fieldCreator(CreatureTypes.PERSON, FieldTypes.AGE),
-                    (String) Helper.fieldCreator(CreatureTypes.PERSON, FieldTypes.HOMETOWN)
+                    (String) Helper.fieldCreator(creature, FieldTypes.NAME),
+                    (int) Helper.fieldCreator(creature, FieldTypes.AGE),
+                    (String) Helper.fieldCreator(creature, FieldTypes.HOMETOWN)
             );
         }
         
         return new Pet(
-                (String) Helper.fieldCreator(CreatureTypes.PET, FieldTypes.NAME),
-                (int) Helper.fieldCreator(CreatureTypes.PET, FieldTypes.AGE),
-                (String) Helper.fieldCreator(CreatureTypes.PET, FieldTypes.COLOR)
+                (String) Helper.fieldCreator(creature, FieldTypes.NAME),
+                (int) Helper.fieldCreator(creature, FieldTypes.AGE),
+                (String) Helper.fieldCreator(creature, FieldTypes.COLOR)
         );
     }
 }

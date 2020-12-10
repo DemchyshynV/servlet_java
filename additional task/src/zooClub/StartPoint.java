@@ -2,7 +2,9 @@ package zooClub;
 
 import zooClub.enums.ActionTypes;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class StartPoint {
 

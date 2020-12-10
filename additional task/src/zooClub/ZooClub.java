@@ -169,7 +169,14 @@ public class ZooClub {
 
         System.out.println("all zooClub participants:");
         for (Map.Entry<Person, List<Pet>> personWithPets : club.entrySet()) {
-            System.out.println(personWithPets);
+            System.out.println("\n\t" + personWithPets.getKey() + ":");
+            if (personWithPets.getValue().isEmpty()) {
+                System.out.println("\t\tno pet(s)");
+            } else {
+                for (Pet pet : personWithPets.getValue()) {
+                    System.out.println("\t\t" + pet);
+                }
+            }
         }
     }
 

@@ -40,12 +40,18 @@ public class Store {
             return;
         }
 
-        for (String num : Helper.stringNumbersCreator()) {
-            if (product.getName().contains(num)) {
-                System.out.println("incorrect name, the name mustn't contain numbers!");
-                return;
-            }
+        if (product.getName().matches("(.*[0-9]+.*)")) {
+            System.out.println("incorrect name, the name mustn't contain numbers!");
+            return;
         }
+
+        // or :D
+//        for (String num : Helper.stringNumbersCreator()) {
+//            if (product.getName().contains(num)) {
+//                System.out.println("incorrect name, the name mustn't contain numbers!");
+//                return;
+//            }
+//        }
 
         this.products.add(product);
         System.out.println("the product has been added.");

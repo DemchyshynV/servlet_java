@@ -54,6 +54,7 @@ public class ZooClub {
         List<Pet> pets = club.get(person);
         pets.add(pet);
 
+        // work without replace
         club.replace(person, pets);         // result is the same - zooClub.put(person, pets);
         System.out.println("pet has been added");
     }

@@ -166,7 +166,7 @@ public class ZooClub {
 
     public static void showClubParticipants() {
         if (club.isEmpty()) {
-            System.out.println("there are no people in the zooClub");
+            System.out.println("there are no people in the zoo club");
             return;
         }
 

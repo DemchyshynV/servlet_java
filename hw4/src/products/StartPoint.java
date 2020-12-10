@@ -7,7 +7,7 @@ public class StartPoint {
     public static void main(String[] args) {
 
         Store store = new Store();
-        Product product = new Product(9, "app0e", 0.5, ProductType.FRUITS, "Ukraine", "red");
+        Product product = new Product(9, "app7e", 0.5, ProductType.FRUITS, "Ukraine", "red");
 
         store.addProduct(product);
 

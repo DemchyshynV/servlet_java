@@ -40,7 +40,7 @@ public class StartPoint {
                 break;
 
             case 5:
-                ZooClub.removePetFromAllParticipants();
+                ZooClub.removePetByNameFromAllParticipants();
                 menu();
                 break;
 
@@ -65,7 +65,10 @@ public class StartPoint {
         System.out.println("2) додати тваринку до учасника клубу");
         System.out.println("3) видалити тваринку з власника");
         System.out.println("4) видалити учасника клубу");
+
+        // видаляю тваринку за введеним іменем із усіх учасників клубу
         System.out.println("5) видалити конкретну тваринку з усіх власників");
+
         System.out.println("6) вивести на екран зооклуб");
         System.out.println("7) вихід з меню");
     }

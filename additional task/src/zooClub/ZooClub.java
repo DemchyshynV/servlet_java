@@ -124,7 +124,8 @@ public class ZooClub {
     }
 
 
-    public static void removePetFromAllParticipants() {
+    // видаляю тваринку за введеним іменем із усіх учасників клубу
+    public static void removePetByNameFromAllParticipants() {
         String name = (String) Helper.fieldCreator(CreatureTypes.PET, FieldTypes.NAME);
         int petsQuantityBeforeRemoval = 0;      // for message - is pet removed or no
         int petsQuantityAfterRemoval = 0;

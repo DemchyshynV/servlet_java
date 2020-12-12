@@ -15,15 +15,15 @@ public class Time {
         this.setMin(min);
     }
 
-    private void setHour(int hour) {
+    private void setHour(int hour) {    // only for constructor
         this.hourChecker(hour);
     }
 
-    private void setMin(int min) {
+    private void setMin(int min) {    // only for constructor
         this.minChecker(min);
     }
 
-    public void setHour(int hour, Seance seance) {
+    public void setHour(int hour, Seance seance) {    // for future changes
         if (seance == null) {
             System.out.println("cannot change hour, because season is null!");
             return;
@@ -33,7 +33,7 @@ public class Time {
         seance.setEndTime();        // to update end time
     }
 
-    public void setMin(int min, Seance seance) {
+    public void setMin(int min, Seance seance) {    // for future changes
         if (seance == null) {
             System.out.println("cannot change min, because season is null!");
             return;

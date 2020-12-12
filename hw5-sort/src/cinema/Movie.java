@@ -26,6 +26,10 @@ public class Movie {
         seance.setEndTime();        // to update end time
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "movie=(title = " + title + ", duration = " + duration + ")";

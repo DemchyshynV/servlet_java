@@ -26,7 +26,7 @@ public class Time {
 
     public void setHour(int hour, Seance seance) {       // for future changes
         if (seance == null) {
-            System.out.println("cannot change hour, because season is null!");
+            System.out.println("cannot change hour, because seance is null!");
             return;
         }
 
@@ -36,7 +36,7 @@ public class Time {
 
     public void setMin(int min, Seance seance) {        // for future changes
         if (seance == null) {
-            System.out.println("cannot change min, because season is null!");
+            System.out.println("cannot change min, because seance is null!");
             return;
         }
 

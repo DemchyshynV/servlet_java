@@ -19,7 +19,7 @@ public class Movie {
         }
 
         if (seance == null) {
-            System.out.println("cannot change duration, because season is null!");
+            System.out.println("cannot change duration, because seance is null!");
             return;
         }
 

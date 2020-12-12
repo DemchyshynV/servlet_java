@@ -33,12 +33,12 @@ public class StartPoint {
         Seance seance7 = new Seance(theShallows, startTime2);
         Seance seance8 = new Seance(forrestGump, startTime4);
 
-        Schedule schedule = new Schedule();
-        schedule.addSeance(seance);
-        schedule.addSeance(seance3);
-        schedule.addSeance(seance6);
-
-        System.out.println(schedule);
+//        Schedule schedule = new Schedule();
+//        schedule.addSeance(seance);
+//        schedule.addSeance(seance3);
+//        schedule.addSeance(seance6);
+//
+//        System.out.println(schedule);
 
         Cinema cinema = new Cinema(new Time(9, 0), new Time(20, 30));
         cinema.addSeance(Days.SATURDAY, seance);

@@ -13,25 +13,25 @@ public class StartPoint {
         Time duration3 = new Time(2, 25);
         Time duration4 = new Time(1, 28);
 
-        Movie movie = new Movie("film1", duration);
-        Movie movie2 = new Movie("film2", duration2);
-        Movie movie3 = new Movie("film3", duration3);
-        Movie movie4 = new Movie("film4", duration4);
-        Movie movie5 = new Movie("film5", duration);
+        Movie aboutTime = new Movie("About time", duration);
+        Movie theShallows = new Movie("The shallows", duration2);
+        Movie homeAlone = new Movie("Home alone", duration3);
+        Movie forrestGump = new Movie("Forrest Gump", duration4);
+        Movie downhill = new Movie("Downhill", duration);
 
         Time startTime = new Time(10, 20);
         Time startTime2 = new Time(14, 10);
         Time startTime3 = new Time(11, 0);
         Time startTime4 = new Time(9, 5);
 
-        Seance seance = new Seance(movie5, startTime);
-        Seance seance2 = new Seance(movie2, startTime3);
-        Seance seance3 = new Seance(movie3, startTime3);
-        Seance seance4 = new Seance(movie4, startTime4);
-        Seance seance5 = new Seance(movie, startTime3);
-        Seance seance6 = new Seance(movie3, startTime2);
-        Seance seance7 = new Seance(movie2, startTime2);
-        Seance seance8 = new Seance(movie4, startTime4);
+        Seance seance = new Seance(downhill, startTime);
+        Seance seance2 = new Seance(theShallows, startTime3);
+        Seance seance3 = new Seance(homeAlone, startTime3);
+        Seance seance4 = new Seance(forrestGump, startTime4);
+        Seance seance5 = new Seance(aboutTime, startTime3);
+        Seance seance6 = new Seance(homeAlone, startTime2);
+        Seance seance7 = new Seance(theShallows, startTime2);
+        Seance seance8 = new Seance(forrestGump, startTime4);
 
 //        Schedule schedule = new Schedule();
 //        schedule.addSeance(seance);

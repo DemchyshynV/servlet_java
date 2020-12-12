@@ -4,6 +4,7 @@ import lombok.*;
 
 @NoArgsConstructor
 @Getter
+@EqualsAndHashCode
 
 public class Time {
 

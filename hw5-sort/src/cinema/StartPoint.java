@@ -37,8 +37,6 @@ public class StartPoint {
 //        schedule.addSeance(seance);
 //        schedule.addSeance(seance3);
 //        schedule.addSeance(seance6);
-//
-//        System.out.println(schedule);
 
         Cinema cinema = new Cinema(new Time(9, 0), new Time(20, 30));
         cinema.addSeance(Days.SATURDAY, seance);

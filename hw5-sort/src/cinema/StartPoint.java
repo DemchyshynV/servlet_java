@@ -8,7 +8,7 @@ public class StartPoint {
 
     public static void main(String[] args) {
 
-        Time duration = new Time(2, 58);
+        Time duration = new Time(2, 50);
         Time duration2 = new Time(1, 30);
         Time duration3 = new Time(2, 25);
         Time duration4 = new Time(1, 28);
@@ -55,6 +55,10 @@ public class StartPoint {
     }
 
     public static void cinemaIterator(Cinema cinema) {
+        if (cinema.getCinema().isEmpty()) {
+            System.out.println("there are no seances in the cinema");
+        }
+
         for (Map.Entry<Days, Schedule> daysScheduleEntry : cinema.getCinema().entrySet()) {
             System.out.println("\n\t" + daysScheduleEntry.getKey() + ":");
 

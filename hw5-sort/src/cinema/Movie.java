@@ -12,6 +12,11 @@ public class Movie {
     private Time duration;
 
     public void setDuration(Time duration, Seance seance) {
+        if (duration.getHour() == 0 && duration.getMin() == 0) {
+            System.out.println("duration cannot equals zero");
+            return;
+        }
+
         if (seance == null) {
             System.out.println("cannot change duration, because season is null!");
             return;

@@ -197,7 +197,7 @@ public class Cinema {
 
 
     public void removeDayFromCinemaWithoutSeances() {
-        // 1)
+        // or
 //        Iterator<Days> daysIterator = this.cinema.keySet().iterator();
 //
 //        while (daysIterator.hasNext()) {
@@ -209,11 +209,11 @@ public class Cinema {
 //        }
 
 
-        // 2)
+        // or
         this.cinema.keySet().removeIf(day -> this.cinema.get(day).getSeances().isEmpty());
 
 
-        // 3)
+        // or
 //        for (Days day : this.cinema.keySet()) {
 //            if (this.cinema.get(day).getSeances().isEmpty()) {
 //                this.cinema.remove(day);

@@ -46,7 +46,7 @@ public class StartPoint {
 //        cinema.addSeances(Days.MONDAY, seance);
         cinema.addSeance(Days.MONDAY, seance);
 
-        cinema.removeMovie(movie);
+        cinema.removeMovie(aboutTime);
 //        cinema.removeMovie(movie5);
 //        cinemaIterator(cinema);
 //

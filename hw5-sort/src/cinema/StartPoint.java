@@ -51,7 +51,7 @@ public class StartPoint {
 //        cinemaIterator(cinema);
 //
         cinema.removeSeance(Days.FRIDAY, seance3);
-//        cinemaIterator(cinema);
+        cinemaIterator(cinema);
     }
 
     public static void cinemaIterator(Cinema cinema) {

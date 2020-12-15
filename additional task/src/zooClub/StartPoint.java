@@ -12,50 +12,90 @@ public class StartPoint {
         menu();
     }
 
+    // 1
+//    public static void menu() {
+//        System.out.print("\n Make your choice: ");
+//        Scanner scanner = new Scanner(System.in);
+//        int choice = scanner.nextInt();
+//
+//        switch (choice) {
+//
+//            case 1:
+//                ZooClub.addPerson();
+//                menu();
+//                break;
+//
+//            case 2:
+//                ZooClub.getPersonIfExists(ActionTypes.ADD_PET);
+//                menu();
+//                break;
+//
+//            case 3:
+//                ZooClub.getPersonIfExists(ActionTypes.REMOVE_PET);
+//                menu();
+//                break;
+//
+//            case 4:
+//                ZooClub.removePerson();
+//                menu();
+//                break;
+//
+//            case 5:
+//                ZooClub.removePetByNameFromAllParticipants();
+//                menu();
+//                break;
+//
+//            case 6:
+//                ZooClub.showClubParticipants();
+//                menu();
+//                break;
+//
+//            case 7:
+//                System.out.println("you have left the menu");
+//                break;
+//
+//            default:
+//                System.out.println("incorrect number, try again");
+//                menu();
+//        }
+//    }
+
+    // 2
     public static void menu() {
         System.out.print("\n Make your choice: ");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
 
-        switch (choice) {
+        while (scanner.hasNext()) {
+            int choice = scanner.nextInt();
 
-            case 1:
+            if (choice == 1) {
                 ZooClub.addPerson();
-                menu();
-                break;
 
-            case 2:
+            } else if (choice == 2) {
                 ZooClub.getPersonIfExists(ActionTypes.ADD_PET);
-                menu();
-                break;
 
-            case 3:
+            } else if (choice == 3) {
                 ZooClub.getPersonIfExists(ActionTypes.REMOVE_PET);
-                menu();
-                break;
 
-            case 4:
+            } else if (choice == 4) {
                 ZooClub.removePerson();
-                menu();
-                break;
 
-            case 5:
+            } else if (choice == 5) {
                 ZooClub.removePetByNameFromAllParticipants();
-                menu();
-                break;
 
-            case 6:
+            } else if (choice == 6) {
                 ZooClub.showClubParticipants();
-                menu();
-                break;
 
-            case 7:
+            } else if (choice == 7) {
                 System.out.println("you have left the menu");
-                break;
+                scanner.close();
+                return;
 
-            default:
+            } else {
                 System.out.println("incorrect number, try again");
-                menu();
+            }
+
+            menu();
         }
     }
 

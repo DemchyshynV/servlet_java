@@ -138,7 +138,7 @@ public class BookClub {
 
 
     // сформувати Map<String, Book>, де String - імя та вік двох наймолодших учасників клубу,
-    // Book - книга кожного учасника із його List<Book>, яка була найшвидше опублікована
+    // Book - книга учасника клубу із його List<Book>, яка була найшвидше опублікована
     public void peopleAgeBookYearOfPublishingToMap() {
         LocalDate now = LocalDate.now();
 

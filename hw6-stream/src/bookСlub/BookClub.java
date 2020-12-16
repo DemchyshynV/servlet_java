@@ -157,7 +157,7 @@ public class BookClub {
                 })
                 .limit(2)
                 .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
-                                                    + (now.getYear() - person.getBirthday().getYear()) + ")",
+                                          + (now.getYear() - person.getBirthday().getYear()) + ")",
                                person -> person.getBooks().stream()
                                             .min(Comparator.comparingInt(Book::getYearOfPublishing))
                                             .get(),

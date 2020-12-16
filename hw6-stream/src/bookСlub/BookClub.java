@@ -100,7 +100,9 @@ public class BookClub {
 
     // ДОДАТКОВІ:
 
-    // сформувати два List<Person>, 1 - особи, які молодші середнього віку учасників клубу, 2 - старші середнього віку
+    // сформувати два Map<String, List<Book>>,
+    // 1 - жінки, які молодші середнього віку учасників клубу, та омолодити їх на 5 років
+    // 2 - чоловіки, які старші середнього віку та зробити їх старшими на 10 років
     public void peopleFilteredByMiddleAge() {
         LocalDate now = LocalDate.now();
         double middleAge = this.bookClub.stream()
@@ -108,15 +110,30 @@ public class BookClub {
                 .average()
                 .getAsDouble();
 
-        System.out.println("younger middle-aged: ");
-        this.bookClub.stream()
-                .filter(person -> now.getYear() - person.getBirthday().getYear() < middleAge)
-                .collect(toList()).forEach(System.out::println);
+        Map<String, List<Book>> youngerMiddleAgedWoman = this.bookClub.stream()
+                .filter(person -> now.getYear() - person.getBirthday().getYear() < middleAge && person.getSex().equals("woman"))
+                .peek(person -> person.setBirthday(LocalDate.of(person.getBirthday().getYear() + 5,
+                                                                  person.getBirthday().getMonth(),
+                                                                  person.getBirthday().getDayOfMonth())))
+                .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
+                                         + (now.getYear() - person.getBirthday().getYear()) + ")",
+                               Person::getBooks));
 
-        System.out.println("older middle-aged: ");
-        this.bookClub.stream()
-                .filter(person -> now.getYear() - person.getBirthday().getYear() > middleAge)
-                .collect(toList()).forEach(System.out::println);
+        System.out.println("younger middle-aged: ");
+        youngerMiddleAgedWoman.forEach((k, v) -> System.out.println(k + "\n books: " + v));
+
+
+        Map<String, List<Book>> olderMiddleAgedMan = this.bookClub.stream()
+                .filter(person -> now.getYear() - person.getBirthday().getYear() > middleAge && person.getSex().equals("man"))
+                .peek(person -> person.setBirthday(LocalDate.of(person.getBirthday().getYear() - 10,
+                                                                  person.getBirthday().getMonth(),
+                                                                  person.getBirthday().getDayOfMonth())))
+                .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
+                                         + (now.getYear() - person.getBirthday().getYear()) + ")",
+                               Person::getBooks));
+
+        System.out.println("\nolder middle-aged: ");
+        olderMiddleAgedMan.forEach((k, v) -> System.out.println(k + "\n books: " + v));
     }
 
 

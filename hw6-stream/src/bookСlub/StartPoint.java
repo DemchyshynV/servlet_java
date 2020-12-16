@@ -9,9 +9,9 @@ public class StartPoint {
 //        bookClub.peopleWitTheirBookPagesToMap();
 //        bookClub.peopleWithTheirBiggestBookToMap();
 //        bookClub.booksFilteredByPeopleAgeAndBookPages();
-//        bookClub.peopleFilteredByMiddleAge();
+        bookClub.peopleFilteredByMiddleAge();
 //        bookClub.peopleAgeBookYearOfPublishingToMap();
-        bookClub.peopleNameAgeToMap();
+//        bookClub.peopleNameAgeToMap();
 //        bookClub.peopleNameListOfBooksToMap();
     }
 }

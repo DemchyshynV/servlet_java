@@ -50,7 +50,7 @@ public class BookClub {
                                           // .sum(),
 
                                // to TreeMap
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new
                 ));
 
@@ -74,7 +74,7 @@ public class BookClub {
 //                                            person -> person.getBooks().stream()
 //                                                        .sorted((b1, b2) -> b2.getPages() - b1.getPages())
 //                                                        .findFirst().get(),
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new
                 ));
 
@@ -118,7 +118,7 @@ public class BookClub {
                 .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
                                          + (now.getYear() - person.getBirthday().getYear()) + ")",
                                Person::getBooks,
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new
                 ));
 
@@ -134,7 +134,7 @@ public class BookClub {
                 .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
                                          + (now.getYear() - person.getBirthday().getYear()) + ")",
                                Person::getBooks,
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new
                 ));
 
@@ -161,7 +161,7 @@ public class BookClub {
                                person -> person.getBooks().stream()
                                             .min(Comparator.comparingInt(Book::getYearOfPublishing))
                                             .get(),
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new));
 
         peopleEarlierBook.forEach((k, v) -> System.out.println(k + ", the fastest published book: " + v));
@@ -191,7 +191,7 @@ public class BookClub {
                 })
                 .collect(toMap(Person::getName,
                                person -> now.getYear() - person.getBirthday().getYear(),
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new));
 
         nameAgeToMap.forEach((k, v) -> System.out.println("name: " + k + ", new age: " + v));
@@ -212,7 +212,7 @@ public class BookClub {
                                                 return book;
                                             })
                                             .collect(toList()),
-                               (oldValue, newValue) -> oldValue,
+                               (oldKey, newKey) -> oldKey,
                                TreeMap::new
                                ));
 

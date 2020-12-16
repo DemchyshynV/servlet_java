@@ -49,9 +49,9 @@ public class BookClub {
                                           // or
                                           // .sum(),
 
-                                          // to TreeMap
-                                          (oldValue, newValue) -> oldValue,
-                                          TreeMap::new
+                               // to TreeMap
+                               (oldValue, newValue) -> oldValue,
+                               TreeMap::new
                 ));
 
         peopleBookPages.forEach((k, v) -> System.out.println("name: " + k.getName() + ", amount of book pages: " + v));
@@ -74,8 +74,8 @@ public class BookClub {
 //                                            person -> person.getBooks().stream()
 //                                                        .sorted((b1, b2) -> b2.getPages() - b1.getPages())
 //                                                        .findFirst().get(),
-                                          (oldValue, newValue) -> oldValue,
-                                          TreeMap::new
+                               (oldValue, newValue) -> oldValue,
+                               TreeMap::new
                 ));
 
         peopleBiggestBook.forEach((k, v) -> System.out.println("name: " + k + ", the biggest book: " + v));
@@ -117,7 +117,10 @@ public class BookClub {
                                                                   person.getBirthday().getDayOfMonth())))
                 .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
                                          + (now.getYear() - person.getBirthday().getYear()) + ")",
-                               Person::getBooks));
+                               Person::getBooks,
+                               (oldValue, newValue) -> oldValue,
+                               TreeMap::new
+                ));
 
         System.out.println("younger middle-aged: ");
         youngerMiddleAgedWoman.forEach((k, v) -> System.out.println(k + "\n books: " + v));
@@ -130,7 +133,10 @@ public class BookClub {
                                                                   person.getBirthday().getDayOfMonth())))
                 .collect(toMap(person -> "Person (name: " + person.getName() + ", age: "
                                          + (now.getYear() - person.getBirthday().getYear()) + ")",
-                               Person::getBooks));
+                               Person::getBooks,
+                               (oldValue, newValue) -> oldValue,
+                               TreeMap::new
+                ));
 
         System.out.println("\nolder middle-aged: ");
         olderMiddleAgedMan.forEach((k, v) -> System.out.println(k + "\n books: " + v));

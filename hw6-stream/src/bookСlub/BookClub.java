@@ -100,8 +100,8 @@ public class BookClub {
 
     // ДОДАТКОВІ:
 
-    // сформувати два Map<String, List<Book>>,
-    // 1 - жінки, які молодші середнього віку учасників клубу, та омолодити їх на 5 років
+    // сформувати два Map<String, List<Book>>, де String - імя та вік учасника клубу
+    // 1 - жінки, які молодші середнього віку учасників клубу та омолодити їх на 5 років
     // 2 - чоловіки, які старші середнього віку та зробити їх старшими на 10 років
     public void peopleFilteredByMiddleAge() {
         LocalDate now = LocalDate.now();
@@ -137,7 +137,7 @@ public class BookClub {
     }
 
 
-    // сформувати Map<String, Book>, де String -  імя та вік двох наймолодших учасників клубу,
+    // сформувати Map<String, Book>, де String - імя та вік двох наймолодших учасників клубу,
     // Book - книга кожного учасника із його List<Book>, яка була найшвидше опублікована
     public void peopleAgeBookYearOfPublishingToMap() {
         LocalDate now = LocalDate.now();

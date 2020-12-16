@@ -108,12 +108,12 @@ public class BookClub {
                 .average()
                 .getAsDouble();
 
-        System.out.println("younger middle-aged");
+        System.out.println("younger middle-aged: ");
         this.bookClub.stream()
                 .filter(person -> now.getYear() - person.getBirthday().getYear() < middleAge)
                 .collect(toList()).forEach(System.out::println);
 
-        System.out.println("older middle-aged");
+        System.out.println("older middle-aged: ");
         this.bookClub.stream()
                 .filter(person -> now.getYear() - person.getBirthday().getYear() > middleAge)
                 .collect(toList()).forEach(System.out::println);

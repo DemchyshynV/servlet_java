@@ -11,7 +11,7 @@ public class StartPoint {
 //        bookClub.booksFilteredByPeopleAgeAndBookPages();
 //        bookClub.peopleFilteredByMiddleAge();
 //        bookClub.peopleAgeBookYearOfPublishingToMap();
-//        bookClub.peopleNameAgeToMap();
-        bookClub.peopleNameListOfBooksToMap();
+        bookClub.peopleNameAgeToMap();
+//        bookClub.peopleNameListOfBooksToMap();
     }
 }

@@ -6,10 +6,10 @@ public class StartPoint {
 
         BookClub bookClub = new BookClub();
 
-//        bookClub.peopleWitTheirBookPagesToMap();
+        bookClub.peopleWithTheirBookPagesToMap();
 //        bookClub.peopleWithTheirBiggestBookToMap();
 //        bookClub.booksFilteredByPeopleAgeAndBookPages();
-        bookClub.peopleFilteredByMiddleAge();
+//        bookClub.peopleFilteredByMiddleAge();
 //        bookClub.peopleAgeBookYearOfPublishingToMap();
 //        bookClub.peopleNameAgeToMap();
 //        bookClub.peopleNameListOfBooksToMap();

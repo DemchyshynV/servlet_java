@@ -42,7 +42,7 @@ public class BookClub {
 //    1. згенерувати мапу <Person, Integer>, де Integer - кількість сторінок усіх книжок, які має людина
     public void peopleWithTheirBookPagesToMap() {
         Map<Person, Integer> peopleBookPages = this.bookClub.stream()
-                .collect(toMap(person -> person,
+                .collect(toMap(person -> person,    // or Function.identity()
                                person ->  person.getBooks().stream()
                                             .mapToInt(Book::getPages)
                                             .reduce(0, Integer::sum),

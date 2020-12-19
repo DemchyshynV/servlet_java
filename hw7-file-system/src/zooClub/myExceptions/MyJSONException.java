@@ -2,11 +2,11 @@ package zooClub.myExceptions;
 
 import org.json.JSONException;
 
-public class MyException extends JSONException {
+public class MyJSONException extends JSONException {
 
     private String msg;
 
-    public MyException(String s, String msg) {
+    public MyJSONException(String s, String msg) {
         super(s);
         this.msg = msg;
     }

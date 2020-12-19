@@ -2,7 +2,7 @@ package zooClub;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import zooClub.myExceptions.MyException;
+import zooClub.myExceptions.MyJSONException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class ZooClub {
 
                 try {
                     addPetFromJsonFile(person);
-                } catch (MyException e) {
+                } catch (MyJSONException e) {
                     e.printStackTrace();
                     this.zooClub.put(new Person((int) person.get("id"),
                                                 (String) person.get("nickname"),
@@ -40,10 +40,10 @@ public class ZooClub {
     }
 
 
-    public void addPetFromJsonFile(JSONObject person) throws MyException {
+    public void addPetFromJsonFile(JSONObject person) throws MyJSONException {
 
         if (person.getJSONArray("pets").isEmpty()) {
-            throw new MyException(person.get("nickname") + " doesn't have pets", ", add somebody");
+            throw new MyJSONException(person.get("nickname") + " doesn't have pets", ", add somebody");
         }
 
         List<Pet> petList = new ArrayList<>();

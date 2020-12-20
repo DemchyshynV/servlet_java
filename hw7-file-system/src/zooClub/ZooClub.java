@@ -31,6 +31,7 @@ public class ZooClub {
 
                 try {
                     addPetFromJsonFile(person);
+
                 } catch (MyJSONException e) {
                     e.printStackTrace();
                     this.zooClub.put(new Person((int) person.get("id"),

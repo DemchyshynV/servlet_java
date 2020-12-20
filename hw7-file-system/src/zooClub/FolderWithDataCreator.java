@@ -3,30 +3,75 @@ package zooClub;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FolderWithDataCreator {
 
-    private final static File folder = new File("data");
-    private final static File file = new File(folder + "/zoo-club-participants.json");
+    private final static File FOLDER = new File("data");
+    private final static File JSON_FILE = new File(FOLDER  + "/zoo-club-participants.json");
+    private final static File TXT_FILE = new File(FOLDER + "/zoo-club-participants.txt");
 
 
-    public static void folderFileCreator(JSONArray zooClub) {
-        if (!folder.exists()) {
-            folder.mkdir();
-            fileWithDataCreator(zooClub);
+    // for txt file
+    public static void folderTxtFileCreator(List<Person> zooClub) {
+        if (!FOLDER.exists()) {
+            FOLDER.mkdir();
+            txtFileWithDataCreator(zooClub);
             return;
         }
 
-        fileWithDataCreator(zooClub);
+        txtFileWithDataCreator(zooClub);
     }
 
 
-    public static void fileWithDataCreator(JSONArray zooClub) {
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(file))) {
+    public static void txtFileWithDataCreator(List<Person> zooClub) {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(TXT_FILE))) {
+            for (Person person : zooClub) {
+                objectOutputStream.writeObject(person);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void txtDataCreator() {
+        List<Person> zooClub = new ArrayList<>();
+
+        List<Pet> roksiPets = Arrays.asList(new Pet("koko", "chicken"), new Pet("richi", "dog"));
+        List<Pet> liliPets = Arrays.asList(new Pet("murzik", "cat"));
+        List<Pet> harryPets = Arrays.asList(new Pet("pockemon", "hamster"), new Pet("rocki", "parrot"), new Pet("richi", "dog"));
+
+        zooClub.add(new Person(1, "roksi", 20, roksiPets));
+        zooClub.add(new Person(2, "lili", 25, liliPets));
+        zooClub.add(new Person(3, "max", 19, new ArrayList<>()));
+        zooClub.add(new Person(4, "harry", 26, harryPets));
+        zooClub.add(new Person(5, "ann", 28, new ArrayList<>()));
+
+        folderTxtFileCreator(zooClub);
+    }
+
+
+
+
+    // for json file
+    public static void folderJsonFileCreator(JSONArray jsonZooClub) {
+        if (!FOLDER.exists()) {
+            FOLDER.mkdir();
+            jsonFileWithDataCreator(jsonZooClub);
+            return;
+        }
+
+        jsonFileWithDataCreator(jsonZooClub);
+    }
+
+
+    public static void jsonFileWithDataCreator(JSONArray zooClub) {
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(JSON_FILE))) {
             printWriter.println(zooClub);
 
         } catch (IOException e) {
@@ -55,7 +100,7 @@ public class FolderWithDataCreator {
         jsonData.put(jsonPersonCreator(4, "harry", 26, harryPets));
         jsonData.put(jsonPersonCreator(5, "ann", 28, new JSONArray()));
 
-        folderFileCreator(jsonData);
+        folderJsonFileCreator(jsonData);
     }
 
 
@@ -80,7 +125,11 @@ public class FolderWithDataCreator {
     }
 
 
-    public static File getFile() {
-        return file;
+    public static File getJsonFile() {
+        return JSON_FILE;
+    }
+
+    public static File getTxtFile() {
+        return TXT_FILE;
     }
 }

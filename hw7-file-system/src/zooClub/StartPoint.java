@@ -7,14 +7,20 @@ public class StartPoint {
     public static void main(String[] args) {
 
         FolderWithDataCreator.jsonDataCreator();
+        FolderWithDataCreator.txtDataCreator();
 
         ZooClub zooClub = new ZooClub();
 
-        zooClub.addParticipantsFromJsonFile();
-        zooClub.addParticipant(new Person(10, "olya", 40));
-        zooClub.addPetToParticipant("olya", new Pet("jecki", "cat"));
-        zooClub.removePetFromParticipant("roksi", "koko");
-        zooClub.removeParticipant("lili");
+        // from txt file using Serializable
+        zooClub.addParticipantsFromTxtFile();
+
+        // from json file
+//        zooClub.addParticipantsFromJsonFile();
+
+//        zooClub.addParticipant(new Person(10, "olya", 40));
+//        zooClub.addPetToParticipant("olya", new Pet("jecki", "cat"));
+//        zooClub.removePetFromParticipant("roksi", "koko");
+//        zooClub.removeParticipant("lili");
         zooClub.removePetFromAllParticipants("richi");
         zooClub.showClubParticipants();
 

@@ -6,10 +6,7 @@ import org.json.JSONObject;
 import zooClub.myExceptions.MyJSONException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import static java.util.stream.Collectors.*;
 
@@ -22,8 +19,29 @@ public class ZooClub {
     private Map<Person, List<Pet>> zooClub = new TreeMap<>();
 
 
+    // from txt file using Serializable
+    public void addParticipantsFromTxtFile() {
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FolderWithDataCreator.getTxtFile()))) {
+            Object obj = null;
+
+            try {
+                while ((obj = objectInputStream.readObject()) != null) {
+                    this.zooClub.put(new Person(((Person) obj).getId(), ((Person) obj).getNickname(), ((Person) obj).getAge()),
+                                     ((Person) obj).getPets());
+                }
+            } catch (EOFException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // from json file
     public void addParticipantsFromJsonFile() {
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getJsonFile()))) {
 
             JSONArray data = new JSONArray(bufferedReader.readLine());
 
@@ -84,11 +102,30 @@ public class ZooClub {
 
 
     public void removePetFromParticipant(String personNickname, String petName) {
-        this.zooClub.keySet().forEach(person -> {
-            if (person.getNickname().equals(personNickname)) {
-                this.zooClub.get(person).removeIf(pet -> pet.getName().equals(petName));
-            }
-        });
+
+        // work only when get data from json file
+//        this.zooClub.keySet().forEach(person -> {
+//            if (person.getNickname().equals(personNickname)) {
+//                this.zooClub.get(person).removeIf(pet -> pet.getName().equals(petName));
+//            }
+//        });
+
+
+        // work when get data from json and txt file
+        this.zooClub = this.zooClub.entrySet().stream()
+                            .collect(toMap(Map.Entry::getKey,
+                                           personListEntry -> {
+                                                if (personListEntry.getKey().getNickname().equals(personNickname)) {
+                                                    return personListEntry.getValue().stream()
+                                                                .filter(pet -> !pet.getName().equals(petName))
+                                                                .collect(toList());
+
+                                                }
+
+                                                return personListEntry.getValue();
+                                           },
+                                           (oldKey, newKey) -> oldKey,
+                                           TreeMap::new));
     }
 
 
@@ -96,14 +133,26 @@ public class ZooClub {
         this.zooClub = this.zooClub.entrySet().stream()
                             .filter(personListEntry -> !personListEntry.getKey().getNickname().equals(nickname))
                             .collect(toMap(Map.Entry::getKey,
-                                                      Map.Entry::getValue,
-                                                      (oldKey, newKey) -> oldKey,
-                                                      TreeMap::new));
+                                           Map.Entry::getValue,
+                                           (oldKey, newKey) -> oldKey,
+                                           TreeMap::new));
     }
 
 
     public void removePetFromAllParticipants(String name) {
-        this.zooClub.forEach((person, pets) -> pets.removeIf(pet -> pet.getName().equals(name)));
+
+        // work only when get data from json file
+//        this.zooClub.forEach((person, pets) -> pets.removeIf(pet -> pet.getName().equals(name)));
+
+
+        // work when get data from json and txt file
+        this.zooClub = this.zooClub.entrySet().stream()
+                            .collect(toMap(Map.Entry::getKey,
+                                           personListEntry -> personListEntry.getValue().stream()
+                                                                    .filter(pet -> !pet.getName().equals(name))
+                                                                    .collect(toList()),
+                                           (oldKey, newKey) -> oldKey,
+                                           TreeMap::new));
     }
 
 
@@ -132,12 +181,12 @@ public class ZooClub {
     // practice with json file
 
     public void addParticipantToJsonFile(JSONObject person) {
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getJsonFile()))) {
 
             JSONArray data = new JSONArray(bufferedReader.readLine());
             data.put(person);
 
-            FolderWithDataCreator.fileWithDataCreator(data);
+            FolderWithDataCreator.jsonFileWithDataCreator(data);
             addParticipantsFromJsonFile();
 
         } catch (IOException e) {
@@ -147,7 +196,7 @@ public class ZooClub {
 
 
     public void addPetToParticipantToJsonFile(String nickname, JSONObject pet) {
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getJsonFile()))) {
 
             JSONArray data = new JSONArray(bufferedReader.readLine());
 
@@ -159,7 +208,7 @@ public class ZooClub {
                 }
             });
 
-            FolderWithDataCreator.fileWithDataCreator(data);
+            FolderWithDataCreator.jsonFileWithDataCreator(data);
             addParticipantsFromJsonFile();
 
         } catch (IOException e) {
@@ -169,7 +218,7 @@ public class ZooClub {
 
 
     public void removeParticipantFromJsonFile(String nickname) {
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getJsonFile()))) {
 
             JSONArray data = new JSONArray(bufferedReader.readLine());
             JSONArray newData = new JSONArray();
@@ -182,7 +231,7 @@ public class ZooClub {
                 }
             });
 
-            FolderWithDataCreator.fileWithDataCreator(newData);
+            FolderWithDataCreator.jsonFileWithDataCreator(newData);
             addParticipantsFromJsonFile();
 
         } catch (IOException e) {

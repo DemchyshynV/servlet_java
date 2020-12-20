@@ -1,5 +1,6 @@
 package zooClub;
 
+import lombok.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import zooClub.myExceptions.MyJSONException;
@@ -10,6 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class ZooClub {
 

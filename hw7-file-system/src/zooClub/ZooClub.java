@@ -96,7 +96,7 @@ public class ZooClub {
 
 
     public void removePetFromAllParticipants(String name) {
-        this.zooClub.forEach((key, value) -> value.removeIf(pet -> pet.getName().equals(name)));
+        this.zooClub.forEach((person, pets) -> pets.removeIf(pet -> pet.getName().equals(name)));
     }
 
 

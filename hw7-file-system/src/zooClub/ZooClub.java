@@ -129,6 +129,7 @@ public class ZooClub {
 
 
     // practice with json file
+
     public void addParticipantToJsonFile(JSONObject person) {
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
 

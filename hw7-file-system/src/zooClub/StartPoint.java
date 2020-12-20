@@ -20,6 +20,8 @@ public class StartPoint {
 
 
 
+//        practice with json file
+
 //        zooClub.addParticipantToJsonFile(FolderWithDataCreator.jsonPersonCreator(6, "tom", 30, new JSONArray()));
 //        zooClub.addPetToParticipantToJsonFile("roksi", FolderWithDataCreator.jsonPetCreator("jiji", "fish"));
 //        zooClub.addPetToParticipantToJsonFile("ann", FolderWithDataCreator.jsonPetCreator("pomidor", "dog"));

@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -94,7 +95,7 @@ public class ZooClub {
     public void removeParticipant(String nickname) {
         this.zooClub = this.zooClub.entrySet().stream()
                             .filter(personListEntry -> !personListEntry.getKey().getNickname().equals(nickname))
-                            .collect(Collectors.toMap(Map.Entry::getKey,
+                            .collect(toMap(Map.Entry::getKey,
                                                       Map.Entry::getValue,
                                                       (oldKey, newKey) -> oldKey,
                                                       TreeMap::new));

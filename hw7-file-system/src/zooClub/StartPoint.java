@@ -9,12 +9,21 @@ public class StartPoint {
         FolderWithDataCreator.jsonDataCreator();
 
         ZooClub zooClub = new ZooClub();
-//
-//        zooClub.addParticipantsFromJsonFile();
+
+        zooClub.addParticipantsFromJsonFile();
+        zooClub.addParticipant(new Person(10, "olya", 40));
+        zooClub.addPetToParticipant("olya", new Pet("jecki", "cat"));
+        zooClub.removePetFromParticipant("roksi", "koko");
+        zooClub.removeParticipant("lili");
+        zooClub.removePetFromAllParticipants("richi");
+        zooClub.showClubParticipants();
+
+
+
 //        zooClub.addParticipantToJsonFile(FolderWithDataCreator.jsonPersonCreator(6, "tom", 30, new JSONArray()));
 //        zooClub.addPetToParticipantToJsonFile("roksi", FolderWithDataCreator.jsonPetCreator("jiji", "fish"));
 //        zooClub.addPetToParticipantToJsonFile("ann", FolderWithDataCreator.jsonPetCreator("pomidor", "dog"));
-        zooClub.removeParticipantFromJsonFile("max");
-        zooClub.showClubParticipants();
+//        zooClub.removeParticipantFromJsonFile("max");
+//        zooClub.showClubParticipants();
     }
 }

@@ -47,7 +47,7 @@ public class FolderWithDataCreator {
         liliPets.put(jsonPetCreator("murzik", "cat"));
         harryPets.put(jsonPetCreator("pockemon", "hamster"));
         harryPets.put(jsonPetCreator("rocki", "parrot"));
-        harryPets.put(jsonPetCreator("jeck", "dog"));
+        harryPets.put(jsonPetCreator("richi", "dog"));
 
         jsonData.put(jsonPersonCreator(1, "roksi", 20, roksiPets));
         jsonData.put(jsonPersonCreator(2, "lili", 25, liliPets));

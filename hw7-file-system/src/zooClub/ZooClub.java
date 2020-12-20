@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class ZooClub {
 
-    private final Map<Person, List<Pet>> zooClub = new TreeMap<>();
+    private Map<Person, List<Pet>> zooClub = new TreeMap<>();
 
 
     public void addParticipantsFromJsonFile() {
@@ -61,6 +62,67 @@ public class ZooClub {
     }
 
 
+    public void addParticipant(Person person) {
+        this.zooClub.putIfAbsent(person, new ArrayList<>());
+    }
+
+
+    public void addPetToParticipant(String nickName, Pet pet) {
+       this.zooClub.keySet().forEach(person -> {
+           if (person.getNickname().equals(nickName)) {
+               this.zooClub.get(person).add(pet);
+           }
+       });
+    }
+
+
+    public void removePetFromParticipant(String personNickname, String petName) {
+        this.zooClub.keySet().forEach(person -> {
+            if (person.getNickname().equals(personNickname)) {
+                this.zooClub.get(person).removeIf(pet -> pet.getName().equals(petName));
+            }
+        });
+    }
+
+
+    public void removeParticipant(String nickname) {
+        this.zooClub = this.zooClub.entrySet().stream()
+                            .filter(personListEntry -> !personListEntry.getKey().getNickname().equals(nickname))
+                            .collect(Collectors.toMap(Map.Entry::getKey,
+                                                      Map.Entry::getValue,
+                                                      (oldKey, newKey) -> oldKey,
+                                                      TreeMap::new));
+    }
+
+
+    public void removePetFromAllParticipants(String name) {
+        this.zooClub.forEach((key, value) -> value.removeIf(pet -> pet.getName().equals(name)));
+    }
+
+
+    public void showClubParticipants() {
+        if (this.zooClub.isEmpty()) {
+            System.out.println("zoo club has no participants");
+            return;
+        }
+
+        this.zooClub.forEach((person, pets) -> {
+            if (pets.isEmpty()) {
+                System.out.println("\n" + person + "\n no pets");
+
+            } else {
+                System.out.println("\n" + person + "\n pet(s):");
+                pets.forEach(System.out::println);
+            }
+        });
+    }
+
+
+
+
+
+
+    // practice with json file
     public void addParticipantToJsonFile(JSONObject person) {
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(FolderWithDataCreator.getFile()))) {
 
@@ -118,23 +180,5 @@ public class ZooClub {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public void showClubParticipants() {
-        if (this.zooClub.isEmpty()) {
-            System.out.println("zoo club has no participants");
-            return;
-        }
-
-        this.zooClub.forEach((person, pets) -> {
-            if (pets.isEmpty()) {
-                System.out.println("\n" + person + "\n no pets");
-
-            } else {
-                System.out.println("\n" + person + "\n pet(s):");
-                pets.forEach(System.out::println);
-            }
-        });
     }
 }

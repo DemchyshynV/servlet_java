@@ -1,6 +1,6 @@
 package storage;
 
-import lombok.Data;
+import lombok.*;
 
 @Data
 

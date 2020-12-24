@@ -1,1 +1,5 @@
-1. What is a Monitor?
+A monitor can be considered as a building which contains a special room.
+The room usually contains some data and code.
+Scheduler will pick one based on some criteria(e.g. FIFO).
+As it is shown in the diagram above, there are 3 rooms in this building.
+It ensures that only one thread can access the protected data or code.

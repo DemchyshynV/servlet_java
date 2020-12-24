@@ -1,0 +1,10 @@
+1. What is a Monitor?
+A monitor can be considered as a building which contains a special room.
+The special room can be occupied by only one customer(thread) at a time.
+The room usually contains some data and code.
+If a customer wants to occupy the special room, he has to enter the Hallway(Entry Set) to wait first.
+Scheduler will pick one based on some criteria(e.g. FIFO).
+If he is suspended for some reason, he will be sent to the wait room, and be scheduled to reenter the special room later.
+As it is shown in the diagram above, there are 3 rooms in this building.
+In brief, a monitor is a facility which monitors the threads' access to the special room.
+It ensures that only one thread can access the protected data or code.

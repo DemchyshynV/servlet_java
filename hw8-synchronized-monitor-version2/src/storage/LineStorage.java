@@ -30,7 +30,7 @@ public class LineStorage {
     }
 
     public void put(String value) {
-        while (available) {
+        while (this.available) {
             try {
                 wait();
 

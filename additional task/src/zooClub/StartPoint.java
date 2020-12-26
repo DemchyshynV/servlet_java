@@ -10,7 +10,6 @@ public class StartPoint {
 
         menuOptions();
         menu();
-        System.out.println(111);
     }
 
     // 1

@@ -20,6 +20,7 @@
         </div>
         <hr>
 
+        <h3> add user to database: </h3>
         <form action="/users" method="post">
             <label> enter age:
                 <input type="text" name="age" placeholder="user age">
